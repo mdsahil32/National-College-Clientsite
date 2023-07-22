@@ -5,7 +5,7 @@ const Header = () => {
 
     const navOption = <>
     <li><Link>Home</Link></li>
-    <li><Link>Colleges</Link></li>
+    <li><Link to={'college'}>Colleges</Link></li>
     <li><Link>Admission</Link></li>
     <li><Link>My College</Link></li>
     </>
@@ -21,7 +21,7 @@ const Header = () => {
                         {navOption}
                     </ul>
                 </div>
-                <h3 className='text-2xl font-semibold'>National College</h3>
+                <h3 className='text-2xl font-semibold'>National Colleges</h3>
             </div>
             <div className="navbar-end hidden lg:flex">
                 <ul className="menu menu-horizontal px-1 ">
