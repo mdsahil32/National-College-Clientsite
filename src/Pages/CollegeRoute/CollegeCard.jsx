@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const CollegeCard = ({ college }) => {
-    const { college_name, college_rating, admission_date, research_count, college_image } = college
+    const { college_name, college_rating, admission_date, research_count, college_image, _id } = college
     return (
         <div className="card lg:card-side bg-base-100 shadow-xl">
             <figure><img className='h-80 w-96' src={college_image} alt="Album" /></figure>
@@ -13,7 +14,7 @@ const CollegeCard = ({ college }) => {
                     <p>Research: {research_count}</p>
                 </div>
                 <div className="card-actions justify-center mt-6">
-                    <button className="btn btn-neutral">Details</button>
+                    <Link to={`/college/${_id}`}><button className="btn btn-neutral">Details</button></Link>
                 </div>
             </div>
         </div>

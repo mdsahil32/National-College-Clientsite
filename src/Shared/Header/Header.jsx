@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 const Header = () => {
 
     const navOption = <>
-    <li><Link>Home</Link></li>
-    <li><Link to={'college'}>Colleges</Link></li>
-    <li><Link>Admission</Link></li>
+    <li><Link to={'/'}>Home</Link></li>
+    <li><Link to={'/college'}>Colleges</Link></li>
+    <li><Link to={'/admission'}>Admission</Link></li>
     <li><Link>My College</Link></li>
     </>
 
