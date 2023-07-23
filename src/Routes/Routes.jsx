@@ -5,6 +5,10 @@ import College from "../Pages/CollegeRoute/College";
 import CollegeDetail from "../Pages/CollegeDetail/CollegeDetail";
 import Admission from "../Pages/Admission/Admission";
 import AdmissionForm from "../Pages/Admission/AdmissionForm";
+import MyCollege from "../Pages/MyCollege/MyCollege";
+import Login from "../Pages/Login/Login";
+import SignUp from "../Pages/Login/SignUp";
+import Profile from "../Pages/Profile/Profile";
 
 const router = createBrowserRouter([
     {
@@ -31,6 +35,22 @@ const router = createBrowserRouter([
         {
           path: 'admissionForm',
           element: <AdmissionForm></AdmissionForm>
+        },
+        {
+          path: 'myCollege', 
+          element: <MyCollege></MyCollege>
+        },
+        {
+          path: 'login', 
+          element: <Login></Login>
+        },
+        {
+          path: 'signUp', 
+          element: <SignUp></SignUp>
+        },
+        {
+          path: 'profile',
+          element: <Profile></Profile>
         }
       ]
     },
