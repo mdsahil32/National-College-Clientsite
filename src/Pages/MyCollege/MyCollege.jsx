@@ -5,7 +5,7 @@ const MyCollege = () => {
     const [data, setData] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/admissionFormFill')
+        fetch('https://national-college-serversite.vercel.app/admissionFormFill')
             .then(res => res.json())
             .then(data => setData(data))
     }, [])

@@ -22,12 +22,12 @@ const router = createBrowserRouter([
         {
             path: '/',
             element: <Home></Home>,
-            loader: () => fetch('http://localhost:5000/homeCollege')
+            loader: () => fetch('https://national-college-serversite.vercel.app/homeCollege')
         },
         {
           path: 'homeCollege/:id',
           element:<PrivateRoute><HomeCollegeDetail></HomeCollegeDetail></PrivateRoute>,
-          loader: ({params}) => fetch(`http://localhost:5000/homeCollege/${params.id}`)
+          loader: ({params}) => fetch(`https://national-college-serversite.vercel.app/homeCollege/${params.id}`)
         },
         {
             path:'college',
@@ -36,7 +36,7 @@ const router = createBrowserRouter([
         {
           path: 'college/:id',
           element: <PrivateRoute><CollegeDetail></CollegeDetail></PrivateRoute>,
-          loader: ({params}) => fetch(`http://localhost:5000/colleges/${params.id}`)
+          loader: ({params}) => fetch(`https://national-college-serversite.vercel.app/colleges/${params.id}`)
         }, 
         {
           path: 'admission',

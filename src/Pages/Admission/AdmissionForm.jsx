@@ -17,7 +17,7 @@ const AdmissionForm = () => {
         const admissionForm = { name, subject, email, number, address, birth, img };
         console.log(admissionForm);
 
-        fetch('http://localhost:5000/admissionFormFill', {
+        fetch('https://national-college-serversite.vercel.app/admissionFormFill', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

@@ -10,7 +10,7 @@ const Colleges = () => {
 
     const handleSearch = (e) => {
         
-        fetch(`http://localhost:5000/homeCollege/${searchText}`)
+        fetch(`https://national-college-serversite.vercel.app/homeCollege/${searchText}`)
             .then(res => res.json())
             .then(data => setCollege(data))
     }

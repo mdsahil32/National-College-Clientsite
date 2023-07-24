@@ -5,7 +5,7 @@ import AdmissionTable from './AdmissionTable';
 const Admission = () => {
     const [data, setData] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/admissionColleges')
+        fetch('https://national-college-serversite.vercel.app/admissionColleges')
             .then(res => res.json())
             .then(data => setData(data))
     }, [])
