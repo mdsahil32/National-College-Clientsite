@@ -9,15 +9,24 @@ import MyCollege from "../Pages/MyCollege/MyCollege";
 import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/Login/SignUp";
 import Profile from "../Pages/Profile/Profile";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import HomeCollegeDetail from "../Pages/Home/Colleges/HomeCollegeDetail";
 
 const router = createBrowserRouter([
     {
       path: "/",
       element: <MainLayout></MainLayout>,
+      errorElement: <ErrorPage></ErrorPage>, 
       children: [
         {
             path: '/',
-            element: <Home></Home>
+            element: <Home></Home>,
+            loader: () => fetch('http://localhost:5000/homeCollege')
+        },
+        {
+          path: 'homeCollege/:id',
+          element:<HomeCollegeDetail></HomeCollegeDetail>,
+          loader: ({params}) => fetch(`http://localhost:5000/homeCollege/${params.id}`)
         },
         {
             path:'college',

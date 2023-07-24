@@ -12,13 +12,14 @@ const MyCollege = () => {
 
     return (
         <div>
-            my college
-            {
-                data.map(admissionCollege => <MyCollegeCard
-                key={admissionCollege._id}
-                admissionCollege={admissionCollege}
-                ></MyCollegeCard>)
-            }
+            <div className='grid grid-cols-1 md:grid-cols-3 mx-12 gap-4 my-6'>
+                {
+                    data.map(admissionCollege => <MyCollegeCard
+                        key={admissionCollege._id}
+                        admissionCollege={admissionCollege}
+                    ></MyCollegeCard>)
+                }
+            </div>
         </div>
     );
 };
