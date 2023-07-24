@@ -1,10 +1,14 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../provider/Authprovider';
+import googleImg from '../../assets/google.png'
 
 const Login = () => {
-    const {signIn} = useContext(AuthContext)
+    const navigate = useNavigate()
+    const { signIn, signInWithGoogle } = useContext(AuthContext)
     const [error, setError] = useState('')
+    const location = useLocation()
+    const from = location.state?.from?.pathname || '/'
 
     const handleLogin = event => {
         event.preventDefault()
@@ -17,13 +21,26 @@ const Login = () => {
             .then(result => {
                 const logged = result.user;
                 console.log(logged);
-                // navigate(from, { replace: true })
+                navigate(from, { replace: true })
+                navigate('/')
             })
             .catch(error => {
                 console.log(error);
                 setError(error.message)
             })
         form.reset()
+    }
+
+    const handleGoogle = () => {
+        signInWithGoogle()
+            .then(result => {
+                const logged = result.user;
+                // console.log(logged);
+                navigate(from, { replace: true })
+            })
+            .catch(error => {
+                console.log(error);
+            })
     }
 
     return (
@@ -57,6 +74,7 @@ const Login = () => {
 
                             <p className='text-red-600'><small>{error}</small></p>
                         </div>
+                        <img className="w-1/4 ms-8 pb-6 link" onClick={handleGoogle} src={googleImg} alt="" />
                     </form>
                 </div>
             </div>

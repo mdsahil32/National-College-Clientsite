@@ -32,7 +32,7 @@ const Header = () => {
                         {navOption}
                     </ul>
                 </div>
-                <h3 className='text-2xl font-semibold'>National Colleges</h3>
+                <h3 className='text-3xl font-bold'>National Colleges</h3>
             </div>
             <div className="navbar-end hidden lg:flex">
                 <ul className="menu menu-horizontal px-1 ">

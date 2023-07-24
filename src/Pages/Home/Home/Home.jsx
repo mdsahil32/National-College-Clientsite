@@ -6,7 +6,6 @@ const Home = () => {
   
     return (
         <div>
-            this is home 
            <Colleges></Colleges>
         </div>
     );

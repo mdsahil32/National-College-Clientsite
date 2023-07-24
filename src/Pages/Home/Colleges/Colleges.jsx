@@ -16,7 +16,7 @@ const Colleges = () => {
     }
 
     return (
-        <div className=''>
+        <div className='mt-6'>
             <div className="form-control">
                 <div className="input-group items-center justify-center">
                     <input onChange={(e) => setSearchText(e.target.value)} type="text" placeholder="Search…" className="input input-bordered" />

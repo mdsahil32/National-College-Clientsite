@@ -11,6 +11,7 @@ import SignUp from "../Pages/Login/SignUp";
 import Profile from "../Pages/Profile/Profile";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import HomeCollegeDetail from "../Pages/Home/Colleges/HomeCollegeDetail";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -25,7 +26,7 @@ const router = createBrowserRouter([
         },
         {
           path: 'homeCollege/:id',
-          element:<HomeCollegeDetail></HomeCollegeDetail>,
+          element:<PrivateRoute><HomeCollegeDetail></HomeCollegeDetail></PrivateRoute>,
           loader: ({params}) => fetch(`http://localhost:5000/homeCollege/${params.id}`)
         },
         {
@@ -34,7 +35,7 @@ const router = createBrowserRouter([
         },
         {
           path: 'college/:id',
-          element: <CollegeDetail></CollegeDetail>,
+          element: <PrivateRoute><CollegeDetail></CollegeDetail></PrivateRoute>,
           loader: ({params}) => fetch(`http://localhost:5000/colleges/${params.id}`)
         }, 
         {
@@ -43,7 +44,7 @@ const router = createBrowserRouter([
         },
         {
           path: 'admissionForm',
-          element: <AdmissionForm></AdmissionForm>
+          element: <PrivateRoute><AdmissionForm></AdmissionForm></PrivateRoute>
         },
         {
           path: 'myCollege', 

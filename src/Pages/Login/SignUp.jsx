@@ -2,10 +2,11 @@ import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../provider/Authprovider';
 import Swal from 'sweetalert2';
+import googleImg from '../../assets/google.png'
 
 const SignUp = () => {
     const [error, setError] = useState('')
-    const { createUser, updateUserProfile } = useContext(AuthContext)
+    const { createUser, updateUserProfile, signInWithGoogle } = useContext(AuthContext)
     const navigate = useNavigate()
     const handleSignUp = event => {
         event.preventDefault()
@@ -20,8 +21,8 @@ const SignUp = () => {
             .then(result => {
                 const logged = result.user;
                 console.log(logged);
-                Swal.fire('Your Account Create Successfully')
                 navigate('/')
+                Swal.fire('Your Account Create Successfully')
                 updateUserProfile(name, photo)
                     .then(() => {
                         // console.log('user profile update');
@@ -33,6 +34,18 @@ const SignUp = () => {
                 setError(error.message);
             })
         form.reset()
+    }
+    const handleGoogle = () => {
+        signInWithGoogle()
+            .then(result => {
+                const logged = result.user;
+                // console.log(logged);
+                navigate('/')
+                navigate(from, { replace: true })
+            })
+            .catch(error => {
+                console.log(error);
+            })
     }
 
     return (
@@ -76,6 +89,7 @@ const SignUp = () => {
                             </div>
                             <p className='text-red-600'><small>{error}</small></p>
                         </div>
+                        <img className="w-1/4 ms-8 pb-6 link" onClick={handleGoogle} src={googleImg} alt="" />
                     </form>
                 </div>
             </div>
